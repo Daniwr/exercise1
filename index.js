@@ -12,7 +12,7 @@ app.get("/temperatura", (req, res) => {
 });
 
 app.get("/velocidad", (req, res) => {
-  res.json({ nombre: "Doustan", apellido: "Mireles"});
+  res.json({ nombre: "Doustan", apellido: "Rodriguez"});
 });
 
 app.listen(PORT, () => {
