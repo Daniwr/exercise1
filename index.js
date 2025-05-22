@@ -11,8 +11,8 @@ app.get("/temperatura", (req, res) => {
   res.json({ valor: `${10} °C`, timestamp: new Date().toISOString()});
 });
 
-app.get("/data", (req, res) => {
-  res.json({ valor: `${34} °C`, timestamp: new Date().toISOString()}, { nombre: "Doustan", apellido: "Rodriguez", edad: "21"}, { universidad: "Universidad Tecnologica de la Laguna"});
+app.get("/uni", (req, res) => {
+  res.json({ universidad: "Universidad Tecnologica de la Laguna"});
 });
 
 app.listen(PORT, () => {
