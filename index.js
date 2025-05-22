@@ -10,6 +10,11 @@ app.use(express.json());
 app.get("/temperatura", (req, res) => {
   res.json({ valor: `${10} °C`, timestamp: new Date().toISOString()});
 });
+
+app.get("/velocidad", (req, res) => {
+  res.json({ nombre: "Doustan", apellido: "Mireles"});
+});
+
 app.listen(PORT, () => {
   console.log(`Servidor corriendo en puerto ${PORT}`);
 });
