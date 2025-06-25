@@ -21,6 +21,8 @@ app.post('/create-data-table', async (req, res) => {
         CREATE TABLE ${tableName} (
           id SERIAL PRIMARY KEY,
           value TEXT,
+          name TEXT,
+          matri INTEGER,
           created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
         );
       `);
@@ -37,11 +39,11 @@ app.post('/create-data-table', async (req, res) => {
 
 app.post("/savedata", async (req, res) => {
   const tableName = "data";
-  const { value } = req.body;
+  const { value, name, matri } = req.body;
 
   try {
     await pool.query(`
-        INSERT INTO ${tableName} (value) VALUES($1)`, [value]
+        INSERT INTO ${tableName} (value, name, matri) VALUES($1, $2, $3)`, [value, name, matri]
     );
     return res.status(201).json({ message: "✅ Datos guardados exitosamente" });
 
