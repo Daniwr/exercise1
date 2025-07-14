@@ -74,6 +74,19 @@ app.delete('/deletetable', async (req, res) => {
   }
 });
 
+app.get("/getdata", async (req, res) => {
+  try{
+    const tableName = "data";
+
+    const result = await pool.query(`SELECT * FROM ${tableName};`);
+    return res.status(2001).json(result.rows(), { message: "✅ Datos obtenidos exitosamente" });
+    
+  } catch(err){
+    console.error("Error al obtener los datos:", err);
+    res.status(500).json({ message: "Imposible obtener los datos" });
+  }
+});
+
 const PORT = process.env.PORT || 3005;
 
 app.listen(PORT, () => {
