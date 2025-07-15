@@ -79,7 +79,7 @@ app.get("/getdata", async (req, res) => {
     const tableName = "data";
 
     const result = await pool.query(`SELECT * FROM ${tableName};`);
-    return res.status(2001).json(result.rows(), { message: "✅ Datos obtenidos exitosamente" });
+    return res.status(201).json({data: result.rows});
     
   } catch(err){
     console.error("Error al obtener los datos:", err);
